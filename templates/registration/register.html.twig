@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription | {{ parent() }} {% endblock %}
+
+{% block class %} bg-register {% endblock %}
+{% block page_content %}
+<div class="container padding-content">
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="inscription">
+        <h1 class="text-theme-green mb-4">
+            <i class="fa fa-pencil-alt"></i> Inscription
+        </h1>
+        {{ form_start(registrationForm) }}
+        <div class="form-group">
+            {{ form_errors(registrationForm.civility) }}
+            {{ form_widget(registrationForm.civility) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.name) }}
+            {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.lastname) }}
+            {{ form_widget(registrationForm.lastname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.mobilePhone) }}
+            {{ form_widget(registrationForm.mobilePhone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.country) }}
+            {{ form_widget(registrationForm.country, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        {{ form_errors(registrationForm.plainPassword.first) }}
+        <div class="form-group">
+            {{ form_widget(registrationForm.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(registrationForm.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_errors(registrationForm.agreeTerms) }}
+            {{ form_widget(registrationForm.agreeTerms) }}
+            {{ form_label(registrationForm.agreeTerms) }}
+        </div>
+        <button type="submit" class="btn btn-theme-green"> Créer mon compte </button>
+        {{ form_end(registrationForm) }}
+        <hr>
+        <div class="text-center">
+            Déjà membre ? <a href="{{ path('app_login') }}" style="color: #081a3e; font-weight:500">Se connecter</a>.
+        </div>
+    </div>
+</div>
+{% endblock %}

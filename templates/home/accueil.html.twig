@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil | {{ parent() }} {% endblock %}
+
+{% block class %} bg-accueil {% endblock %}
+{% block page_content %}
+<div class="container">
+    <h1>Hello Word !!! </h1>
+    <img src="{{ asset('asset/img/02.PNG') }}">
+</div>
+{% endblock %}

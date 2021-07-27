@@ -1,0 +1,76 @@
+{% set route_name = app.request.attributes.get('_route') %}
+<header class="header">
+    <div class="navigation">
+        <nav class="nav-bottom">
+            <div class="nav-bottom-center">
+                <div class="nav-left">
+                    {% if app.user %}
+                    <a href="{{ path('Accueil') }}" class="title-bet261">
+                        Dream'in <span style="color: #ec0008 !important">Bet261</span>
+                    </a>
+                    {% else %}
+                    <a href="{{ path('app_login') }}" class="title-bet261">
+                        Dream'in <span style="color: #ec0008 !important">Bet261</span>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="nav-hide">
+                    {% if app.user %}
+                    <a href="{{ path('app_logout') }}" class="login-sm" title="Se déconnecter"><i class="fa fa-sign-out-alt"></i></a>
+                    {% else %}
+                    <a href="{{ path('app_login') }}" class="login-sm" title="Se connecter"><i class="fa fa-sign-in-alt"></i></a>
+                    {% endif %}
+                    <a class="nav-center-hide" href="#"><i class="fa fa-bars"></i></a>
+                </div>
+                {% if app.user %}
+                <div class="nav-center">
+                    <ul class="ul">
+                        <li class="home" {% if route_name starts with 'Accueil' %} id="active" {% endif %} >
+                            <a href="{{ path('Accueil') }}"><i class="fa fa-home"></i> Accueil </a>
+                        </li>
+                        <li class="actualites">
+                            <a href="">Actualités</a>
+                        </li>
+                        <li class="resultats">
+                            <a class="a2" href="#">Resultats <i class="fa fa-caret-down verlical-align-text-bottom"></i></a>
+                            <div class="sn2 sub-nav-2 d-none">
+                                <ul class="sub-nav-group-2">
+                                    <li class="sub-nav-h">Continents</li>
+                                    <li><a href="" class="html"><i class="fa fa-globe-africa"></i> afrique</a></li>
+                                    <li><a href="" class="css"><i class="fa fa-globe-asia"></i> asie</a></li>
+                                    <li><a href="" class="javascript"><i class="fa fa-globe-europe"></i> europe</a></li>
+                                    <li><a href="" class="mysql"><i class="fa fa-globe-americas"></i> amerique</a></li>
+                                </ul>
+                                <ul class="sub-nav-group-2">
+                                    <li class="sub-nav-h">Ressources</li>
+                                    <li><a href=""><i class="fa fa-book-open"></i> Livres</a></li>
+                                    <li class="sub-nav-h mt-3">Catégories</li>
+                                    <li><a href=""><i class="fa fa-football-ball"></i> Premier league</a></li>
+                                    <li><a href=""><i class="fa fa-football-ball"></i> Bondesliga</a></li>
+                                    <li><a href=""><i class="fa fa-football-ball"></i> Serie A</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="forum">
+                            <a class="nav-link" href="">Forum</a>
+                        </li>
+                        <li class="forum">
+                            <a class="nav-link" href="">A propos</a>
+                        </li>
+                    </ul>
+                </div>
+                {# <div class="nav_right">
+                    <a class="btn-login" href="#"> S'inscrire <i class="fa fa-registered"></i></a>
+                </div> #}
+                {% else %}
+                <div class="nav-center">
+                    <span style="color:#fff; font-family:cursive">Quelles sont les principales différences entre les parieurs occasionnels et les parieurs professionnels ?</span>
+                </div>                        
+                <div class="nav-right">
+                    <a class="btn-login" href="{{ path('app_register') }}"> S'inscrire <i class="fa fa-registered"></i></a>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Réinitialisation du mot de passe | {{ parent() }} {% endblock %}
+
+{% block class %} bg-reset-password {% endblock %}
+{% block page_content %}
+<div class="container padding-content">
+    <div class="reset-password">
+        <div class="reset-password-header">
+            <h1 class="text-theme-green h1-reset-password mb-4">
+                <i class="fa fa-lock-open"></i> Redéfinir mon mot de passe 
+            </h1>
+        </div>
+        <div class="reset-password-body">
+        {{ form_start(resetForm) }}
+            <div class="form-group">
+                {{ form_row(resetForm.plainPassword) }}
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-theme-green">Réinitialiser mon mot de passe</button>
+            </div>
+        {{ form_end(resetForm) }}
+        </div>
+    </div>
+    </div>
+{% endblock %}

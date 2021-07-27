@@ -1,0 +1,22 @@
+.cookie-alert-message {
+    z-index: 999;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    opacity: 0.9;
+    background-color: #002a6a;
+    color: #efefef;
+}
+
+.cookie-alert-message .cookie-alert-message-accept-button {
+    background-color: #00AFBF;
+    padding: 5px 10px;
+    color: #FFF;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Connexion | {{ parent() }} {% endblock %}
+
+{% block class %} bg-login {% endblock %}
+{% block page_content %}
+<div class="container padding-content">
+    <div class="connexion">
+        <div class="connexion-header">
+            <h1 class="text-theme-green mb-4"> <i class="fa fa-sign-in-alt"></i> Connexion</h1>
+        </div>
+        <div class="connexion-body">
+            <form method="post">
+                {% if error %}
+                <div class="authentification_error">
+                    L'adresse e-mail ou le mot de passe que vous avez entré est incorrect. 
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="inputEmail" class="font-weight-medium">Adresse email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="font-weight-medium">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="checkbox d-flex mb-3">
+                    <label class="equal-width font-weight-small">
+                        <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                    </label>
+                    <a href="{{ path('app_forgot_password_request') }}" class="equal-width text-right font-weight-small text-underline">Mot de passe oublié ?</a>
+                </div>
+                <button class="btn btn-block btn-lg btn-theme-green center" type="submit">Se conneter <i class="icon-checkmark2"></i></button>
+            </form>
+            <div class="connexion-body-top">
+                <div class="sign-in-separation mt-3 mb-3">
+                    <span>OU</span>
+                </div>
+                <div class="d-flex text-center">
+                    <div class="flex-fill">
+                        <a href="" class="btn btn-lg btn-social-network btn-github" title="Se connecter avec Github">
+                            <span class="fab fa-github"></span>
+                        </a>
+                    </div>
+                    <div class="flex-fill">
+                        <a href="" class="btn btn-lg btn-social-network btn-google" title="Se connecter avec Google">
+                            <span class="fab fa-google"></span>
+                        </a>
+                    </div>
+                    <div class="flex-fill">
+                        <a href="" class="btn btn-lg btn-social-network btn-facebook" title="Se connecter avec Facebook">
+                            <span class="fab fa-facebook"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
